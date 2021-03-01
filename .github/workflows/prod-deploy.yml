@@ -1,8 +1,8 @@
-name: AWS Deploy Test
+name: AWS Deploy Prod
 
 on:
   workflow_run:
-    workflows: ["AWS Deploy Dev"]
+    workflows: ["AWS Deploy Test"]
     branches: [develop]
     types: 
       - completed
@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Job build and deploy to TEST
+    name: Job build and deploy to PROD
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
