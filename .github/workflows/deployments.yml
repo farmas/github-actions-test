@@ -1,0 +1,22 @@
+name: Ansible Build
+
+on: [push]
+
+jobs:
+  dev:
+    name: AWS deploy development
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./test-script.sh
+  test:
+    needs: dev
+    name: AWS deploy test
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./test-script.sh
+  prod:
+    needs: test
+    name: AWS deploy production
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./test-script.sh
