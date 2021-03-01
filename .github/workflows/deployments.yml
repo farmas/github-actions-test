@@ -1,6 +1,9 @@
 name: Ansible Build
 
-on: [push]
+on:
+  push:
+  schedule:
+    - cron:  '*/15 * * * *'
 
 jobs:
   dev:
