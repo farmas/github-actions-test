@@ -1,1 +1,1 @@
-echo 'building!'
+echo 'Sample build and deploy'
