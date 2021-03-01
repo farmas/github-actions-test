@@ -7,16 +7,19 @@ jobs:
     name: AWS deploy development
     runs-on: ubuntu-latest
     steps:
-      - run: ./test-script.sh
+      - uses: actions/checkout@v2
+      - run: sh ./build-script.sh
   test:
     needs: dev
     name: AWS deploy test
     runs-on: ubuntu-latest
     steps:
-      - run: ./test-script.sh
+      - uses: actions/checkout@v2
+      - run: sh ./build-script.sh
   prod:
     needs: test
     name: AWS deploy production
     runs-on: ubuntu-latest
     steps:
-      - run: ./test-script.sh
+      - uses: actions/checkout@v2
+      - run: sh ./build-script.sh
