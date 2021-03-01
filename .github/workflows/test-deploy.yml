@@ -3,7 +3,7 @@ name: AWS Deploy Test
 on:
   workflow_run:
     workflows: ["AWS Deploy Dev"]
-    branches: [main]
+    branches: [develop]
     types: 
       - completed
 
