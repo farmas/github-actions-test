@@ -1,0 +1,16 @@
+name: AWS Deploy Test
+
+on:
+  workflow_run:
+    workflows: ["AWS Deploy Dev"]
+    branches: [main]
+    types: 
+      - completed
+
+jobs:
+  build:
+    name: AWS deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sh ./build-script.sh
