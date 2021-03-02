@@ -15,3 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: sh ./build-script.sh
+      - name: Trigger E2E Tests
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: farmas/github-actions-child-test
+          event-type: test-event
