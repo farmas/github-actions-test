@@ -3,7 +3,7 @@ name: AWS Deploy Dev
 on:
   push:
   schedule:
-    - cron:  '*/15 * * * *'
+    - cron:  '0 11 * * *'
 
 jobs:
   build:
